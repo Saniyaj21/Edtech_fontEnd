@@ -3,7 +3,7 @@ import './Course.scss'
 
 function Course() {
   return (
-    <div>Course</div>
+    <div></div>
   )
 }
 
