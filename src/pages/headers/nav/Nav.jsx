@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
-
+import AuthHeader from "../../auth/AuthHeader";
 
 const Nav = () => {
 	const [isNavMobile, setIsNavMobile] = useState(false);
@@ -29,7 +29,7 @@ const Nav = () => {
 			</nav>
 			<div className={`side-block ${isNavMobile ? "toggle-side-block" : ""}`}>
 				<ul className='ul'>
-        <Link className='nav-a' to={"/"}>
+					<Link className='nav-a' to={"/"}>
 						<li className='nav-li'>
 							{" "}
 							<i className='fa-solid fa-house'></i>Home
@@ -37,22 +37,22 @@ const Nav = () => {
 					</Link>
 					<Link className='nav-a' to={"/"}>
 						<li className='nav-li'>
-            <i className='fa-solid fa-house'></i>Home
+							<i className='fa-solid fa-house'></i>Home
 						</li>
 					</Link>
-					<Link className='nav-a' to={"auth/login"}>
+					<Link className='nav-a' to={"/auth/login"}>
 						<li className='nav-li'>
-            <i className='fa-solid fa-house'></i>Home
+							<AuthHeader />
 						</li>
 					</Link>
 					<Link className='nav-a' to={"/course"}>
 						<li className='nav-li'>
-            <i className='fa-solid fa-house'></i>Home
+							<i className='fa-solid fa-house'></i>Home
 						</li>
 					</Link>
 					<Link className='nav-a' to={"/login"}>
 						<li className='nav-li'>
-            <i className='fa-solid fa-house'></i>Home
+							<i className='fa-solid fa-house'></i>Home
 						</li>
 					</Link>
 				</ul>
