@@ -4,6 +4,8 @@ import sadEmoji from '../../img/error.jpg'
 import { Link } from 'react-router-dom'
 function ErrorPage() {
   return (
+
+    // i am in eoor page 
     <div className='error'>
     <div className="Error-img">
         <img src={sadEmoji} alt="emoji" height={"170px"} />
