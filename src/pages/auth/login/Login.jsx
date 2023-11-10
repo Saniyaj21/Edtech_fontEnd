@@ -1,66 +1,80 @@
-import toast from 'react-hot-toast';
-import React, { useState } from 'react'
-import './login.scss'
 
-import { Link , useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import "./login.scss";
+import {toast} from 'react-hot-toast'
+
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser, selectUser } from "../../../redux/slices/auth";
 
 function Login() {
-  const [user , setUser] = useState({});
-  const navigate = useNavigate()
-  const hendleData = (e)=>{
-        setUser({...user,[e.target.name]:e.target.value})
-   }
+	const dispatch = useDispatch();
+	const { isAuthenticated, error, status } = useSelector(selectUser);
 
-  const handleLogin =async (e)=>{
-     e.preventDefault();
-   if(Object.entries(user).length == 0){
-      return toast.error('plese input valid data....');
-   }
-   if(!user.password || !user.email){
-    return toast.error('email and password required....');
-   }
-   
-     try {
-      //const config = {headers:{'Content-type':'application/json'}, withCedentials:true}
-      const { data } = await axios.post('http://localhost:8080/auth/login', user, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      })
-        toast.success(data.message)
-        console.log('success',data)
-        navigate('/')
+	
+	const [user, setUser] = useState({});
+	const navigate = useNavigate();
+	const hendleData = (e) => {
+		setUser({ ...user, [e.target.name]: e.target.value });
+	};
 
-     } catch (error) {
-      
-      console.log(error)
-      toast.error(error.response.data.message)
-        
-     }
-  }
+  useEffect(() => {
+		if (error) {
+			toast.error(error);
+		}
+		if (isAuthenticated === true) {
+			navigate("/");
+		}
+	}, [dispatch, isAuthenticated, error, status, navigate]);
 
-  return (
-    <div>
-    <form id='login' action="" className='auth-form' onSubmit={handleLogin}>
-    <b style={{fontSize:"25px"}}>Login </b><br></br>
-    <input type="email" name="email" id="" placeholder='enter valid Email' onChange={hendleData} />
-    <input type="password" name="password" id="" placeholder='enter vaild password ' onChange={hendleData}/>
-    <button type='submit'>Log In</button>
-   
-    <p>If you loss your password
-       <strong>
-        <Link to={'/auth/forgotPassword'}><span >Forget password</span></Link>
-      </strong> 
-    </p>
-    <br />
-    <hr />
-    <b>If you are not Register  </b>
-    <Link to={'/auth/register'}><button type=''>Register</button></Link>
-    </form>
 
-  </div>
-  )
+	const handleLogin = async (e) => {
+		e.preventDefault();
+		dispatch(
+			loginUser({ loginEmail: user.email, loginPassword: user.password })
+		);
+	};
+
+
+
+	return (
+		<div>
+			<form id='login' action='' className='auth-form' onSubmit={handleLogin}>
+				<b style={{ fontSize: "25px" }}>Login </b>
+				<br></br>
+				<input
+					type='email'
+					name='email'
+					id=''
+					placeholder='enter valid Email'
+					onChange={hendleData}
+				/>
+				<input
+					type='password'
+					name='password'
+					id=''
+					placeholder='enter vaild password '
+					onChange={hendleData}
+				/>
+				<button type='submit'>Log In</button>
+
+				<p>
+					If you loss your password
+					<strong>
+						<Link to={"/auth/forgotPassword"}>
+							<span>Forget password</span>
+						</Link>
+					</strong>
+				</p>
+				<br />
+				<hr />
+				<b>If you are not Register </b>
+				<Link to={"/auth/register"}>
+					<button type=''>Register</button>
+				</Link>
+			</form>
+		</div>
+	);
 }
 
-export default Login
+export default Login;

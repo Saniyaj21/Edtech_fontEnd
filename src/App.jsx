@@ -9,8 +9,19 @@ import Register from './pages/auth/register/Register';
 import Dashbord from './pages/admin/dashbord/Dashbord';
 import Course from './pages/course/Course'
 import Nav from './pages/headers/nav/Nav';
+import { useDispatch } from 'react-redux';
+import { getUser } from './redux/slices/auth';
+import { useEffect } from 'react';
 
 function App() {
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(getUser())
+   
+  }, [dispatch])
+
   
 return(
 <Router>
