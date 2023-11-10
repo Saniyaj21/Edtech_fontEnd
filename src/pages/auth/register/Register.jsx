@@ -1,92 +1,125 @@
-import React, { useState } from 'react'
-import './Register.scss'
-import { Link, useNavigate } from 'react-router-dom'
-import toast from 'react-hot-toast'
-import dp from '../../../img/profile.jpg'
+import React, { useDebugValue, useEffect, useState } from "react";
+import "./Register.scss";
+import { Link, useNavigate } from "react-router-dom";
+import {toast} from "react-hot-toast";
+import dp from "../../../img/profile.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser, selectUser } from "../../../redux/slices/auth";
+
 function Register() {
+	const [avatar, setAvatar] = useState(dp);
+	const [userName, setUserName] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [user , setUser] = useState({})
-  const [imageData , setImageData]=useState(dp)
-  const navigate = useNavigate()
+	const dispatch = useDispatch();
+	const { isAuthenticated, error, status } = useSelector(selectUser);
+	const navigate = useNavigate();
 
-  const handleData= async(e)=>{
-     
-      setUser({ ...user , [e.target.name]:e.target.value})
-      console.log(user)
-  }
+	useEffect(() => {
+		if (error) {
+			toast.error(error);
+		}
+		if (isAuthenticated === true) {
+			navigate("/");
+		}
+	}, [dispatch, isAuthenticated, error, status, navigate]);
 
-  
-	const handleImageUpload = (event) => {
-		const file = event.target.files[0];
+	const handleFileChange = (e) => {
+		const file = e.target.files[0];
 
 		if (file) {
-			// Use a FileReader to read the selected image file
 			const reader = new FileReader();
-
 			reader.onload = function (e) {
-				// Set the result of the FileReader to the state variable
-				setImageData(e.target.result);
+				setAvatar(e.target.result);
 			};
 
 			reader.readAsDataURL(file);
 		} else {
-			// Clear the state variable if no file is selected ..
-			setImageData(null);
+			console.log("Error happened");
 		}
 	};
+	const handleRegister = (e) => {
+		e.preventDefault();
+		if (password !== confirmPassword) {
+			toast.error("Confirm Password!");
+		} else {
+			const myForm = new FormData();
 
-
-  const createNewUser= async (e)=>{
-      e.preventDefault();
- 
-  
-
-      if(Object.entries(user).length == 0){
-          return toast.error('plese input valid data....');
-       }
-       if(!user.name || !user.email || !user.password){
-        return toast.error('name and email and password required....');
-       }
-       
-       if(user.password.length < 8){
-        return toast.error('password must be 8 characters....');
-       }
-
-       if(user.password != user.cpassword){
-        return toast.error('password and confirm password are not match...')
-      }
-      
-  } 
-  return (
-    <div>
-    <form action="" className='auth-form' onSubmit={createNewUser}>
-    <b style={{fontSize:"25px"}}>Register</b><br/>
-    <label className='label' htmlFor='file'>
-						<img id='image' className='input-image' src={imageData} alt='' />
-					</label>
+			myForm.set("name", userName);
+			myForm.set("email", email);
+			myForm.set("password", password);
+			console.log(userName, email, password);
+			myForm.set("avatar", avatar);
+			dispatch(registerUser(myForm));
+		}
+	};
+	return (
+		<div>
+			<form
+				className='form'
+				encType='multipart/form-data'
+				onSubmit={handleRegister}
+			>
+				<div className='image-container'>
+					<img src={avatar} alt='' />
+				</div>
+				<div className='image-input'>
 					<input
-						hidden
-						className='file'
+						className='file-input'
 						type='file'
-						name='file'
-						id='file'
-						accept='image/*'
-						onChange={handleImageUpload}
+						required
+						onChange={handleFileChange}
 					/>
-
-    <input type="name"  placeholder='enter fullname ' name='name' onChange={handleData}/>
-    <input type="email" name="email" id="email" placeholder='enter Email' onChange={handleData} />
-    <input type="password" name="password" id="pass1" placeholder='enter password ' onChange={handleData}/>
-    <input type="password" name="cpassword" id="pass2" placeholder='enter  confirm password' onChange={handleData} />
-    <button type='submit'> Register </button>
-    <hr />
-    <b>You have alrady register </b>
-    <Link to={'/auth/login'}> <button> Log in </button> </Link>
-    </form>
-    
-
- </div>
-  )
+				</div>
+				<div>
+					<label htmlFor='user-name'>Name</label>
+					<br />
+					<input
+						type='text'
+						required
+						id='user-name'
+						onChange={(e) => setUserName(e.target.value)}
+					/>
+				</div>
+				<div>
+					<label htmlFor='user-email2'>Email</label>
+					<br />
+					<input
+						type='email'
+						required
+						id='user-email2'
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+				</div>
+				<div>
+					<label htmlFor='user-password2'>Password</label>
+					<br />
+					<input
+						type='password'
+						required
+						id='user-password2'
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+				</div>
+				<div>
+					<label htmlFor='user-password-confirm2'>Confirm Password</label>
+					<br />
+					<input
+						type='password'
+						required
+						id='user-password-confirm2'
+						onChange={(e) => setConfirmPassword(e.target.value)}
+					/>
+				</div>
+				<div className='action-btn'>
+					<button type='submit'>Register</button>
+				</div>
+				
+			</form>
+		</div>
+	);
 }
 
-export default Register
+export default Register;
