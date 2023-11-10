@@ -35,9 +35,9 @@ const Nav = () => {
 							<i className='fa-solid fa-house'></i>Home
 						</li>
 					</Link>
-					<Link className='nav-a' to={"/"}>
+					<Link className='nav-a' to={"/admin/dashbord"}>
 						<li className='nav-li'>
-							<i className='fa-solid fa-house'></i>Home
+							<i className='fa-solid fa-house'></i>Dashboard
 						</li>
 					</Link>
 					<Link className='nav-a' to={"/auth/login"}>

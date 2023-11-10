@@ -56,7 +56,7 @@ function Register() {
 		}
 	};
 	return (
-		<div>
+		<div className="register-new-div">
 			<form
 				className='form'
 				encType='multipart/form-data'
@@ -117,6 +117,7 @@ function Register() {
 					<button type='submit'>Register</button>
 				</div>
 				
+      <p><Link to={'/auth/login'}>Login</Link></p>
 			</form>
 		</div>
 	);
