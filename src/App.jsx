@@ -8,12 +8,14 @@ import Login from './pages/auth/login/Login'
 import Register from './pages/auth/register/Register';
 import Dashbord from './pages/admin/dashbord/Dashbord';
 import Course from './pages/course/Course'
+import Nav from './pages/headers/nav/Nav';
 
 function App() {
   
 return(
 <Router>
   <Toaster></Toaster>
+  <Nav></Nav>
   <Routes>
     <Route path='/' element={<Home />} />
     <Route path='/auth/login' element={<Login />} />
