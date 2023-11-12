@@ -1,7 +1,9 @@
 import React from 'react'
-import './Error.scss'
-import sadEmoji from '../../img/error.jpg'
+import './error.scss';
+import sadEmoji from '../../../img/error.jpg';
 import { Link } from 'react-router-dom'
+
+
 function ErrorPage() {
   return (
 

@@ -1,4 +1,3 @@
-// productSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { base_url } from '../../main'
@@ -10,13 +9,14 @@ const initialState = {
   error: null,
   isUpdated: false,
   changePass: false
-
 };
 
-// Define an async thunk to fetch products from the API
+// API REQUESTS
+
+// Login
 export const loginUser = createAsyncThunk('user/loginUser', async ({ loginEmail, loginPassword }) => {
 
-  const response = await axios.post(`http://127.0.0.1:8080/api/user/login`,
+  const response = await axios.post(`${base_url}/api/user/login`,
     {
       email: loginEmail,
       password: loginPassword
@@ -31,20 +31,22 @@ export const loginUser = createAsyncThunk('user/loginUser', async ({ loginEmail,
   return response.data;
 });
 
-// register user
+// Register user
 export const registerUser = createAsyncThunk('user/registerUser', async (myForm) => {
 
-  const response = await axios.post(`${base_url}/api/user/register`, myForm, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    withCredentials: true,
-  });
+  const response = await axios.post(`${base_url}/api/user/register`,
+    myForm,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    });
 
   return response.data;
 });
 
-// logout user
+// Logout user
 export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
 
   const response = await axios.get(`${base_url}/api/user/logout`,
@@ -58,13 +60,13 @@ export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
   return response.data;
 });
 
-// get user details
+// Get user Profile
 export const getUser = createAsyncThunk('user/getUser', async () => {
 
-  const response = await axios.get(`${base_url}/api/user/profile`, {
-    withCredentials: true,
-  });
-
+  const response = await axios.get(`${base_url}/api/user/profile`,
+    {
+      withCredentials: true,
+    });
 
   return response.data;
 });
@@ -78,7 +80,9 @@ const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder  // login user
+    builder
+
+      // Login 
       .addCase(loginUser.pending, (state) => {
         state.status = 'loading';
         state.error = null
@@ -94,7 +98,7 @@ const userSlice = createSlice({
         state.error = action.error.message;
       })
 
-      // register user
+      // Register 
       .addCase(registerUser.pending, (state) => {
         state.status = 'loading';
         state.error = null;
@@ -111,7 +115,7 @@ const userSlice = createSlice({
 
       })
 
-      // logout user
+      // Logout 
       .addCase(logoutUser.pending, (state) => {
         state.status = 'loading';
         state.error = null;
@@ -128,7 +132,8 @@ const userSlice = createSlice({
         state.error = action.error.message;
 
       })
-      //  get user detailsF
+
+      // Profile
       .addCase(getUser.pending, (state) => {
         state.status = 'loading';
         state.error = null;
@@ -137,12 +142,9 @@ const userSlice = createSlice({
         state.status = 'succeeded';
         state.user = action.payload.user;
         state.isAuthenticated = true;
-
       })
       .addCase(getUser.rejected, (state, action) => {
-
         state.status = 'failed';
-
       })
 
   },

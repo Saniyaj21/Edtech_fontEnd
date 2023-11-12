@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Nav.scss";
-import AuthHeader from "../../auth/AuthHeader";
+import "./header.scss";
+import AuthHeader from "./components/AuthHeader";
 
 const Nav = () => {
 	const [isNavMobile, setIsNavMobile] = useState(false);

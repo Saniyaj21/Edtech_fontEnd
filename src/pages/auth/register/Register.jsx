@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {toast} from "react-hot-toast";
 import dp from "../../../img/profile.jpg";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser, selectUser } from "../../../redux/slices/auth";
+import { registerUser, selectUser } from "../../../redux/slices/authSlice";
 
 function Register() {
 	const [avatar, setAvatar] = useState(dp);

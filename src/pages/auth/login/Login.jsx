@@ -1,24 +1,22 @@
-
 import React, { useEffect, useState } from "react";
 import "./login.scss";
-import {toast} from 'react-hot-toast'
+import { toast } from "react-hot-toast";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, selectUser } from "../../../redux/slices/auth";
+import { loginUser, selectUser } from "../../../redux/slices/authSlice";
 
 function Login() {
 	const dispatch = useDispatch();
 	const { isAuthenticated, error, status } = useSelector(selectUser);
 
-	
 	const [user, setUser] = useState({});
 	const navigate = useNavigate();
 	const hendleData = (e) => {
 		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
-  useEffect(() => {
+	useEffect(() => {
 		if (error) {
 			toast.error(error);
 		}
@@ -27,15 +25,12 @@ function Login() {
 		}
 	}, [dispatch, isAuthenticated, error, status, navigate]);
 
-
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		dispatch(
 			loginUser({ loginEmail: user.email, loginPassword: user.password })
 		);
 	};
-
-
 
 	return (
 		<div>
