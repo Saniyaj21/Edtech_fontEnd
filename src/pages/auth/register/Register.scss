@@ -9,63 +9,7 @@
 	color: white;
 }
 
-.auth-btn-group {
-	margin: 40px 0px;
-	display: flex;
-	justify-content: center;
-	> div {
-		position: relative;
-		width: 300px;
-		height: 30px;
 
-		.slider {
-			position: absolute;
-			top: 0px;
-			right: 0%;
-			height: 30px;
-			border-radius: 4px;
-			width: 50%;
-			background-color: tomato;
-			border: 0px;
-
-			transition: 0.4s;
-		}
-		.slide-register {
-			position: absolute;
-			right: 50%;
-		}
-		.slide-login {
-			position: absolute;
-			right: 0%;
-		}
-		> button {
-			height: 30px;
-			width: 150px;
-			border: 0px;
-			background: transparent;
-			position: absolute;
-			font-family: Roboto;
-			font-size: 18px;
-			transition: 0.4s;
-			cursor: pointer;
-		}
-		.register-btn {
-			top: 0px;
-			right: 0%;
-		}
-		.login-btn {
-			top: 0px;
-			right: 50%;
-		}
-	}
-}
-
-.auth-container {
-	display: flex;
-	// align-items: center;
-	justify-content: center;
-	min-height: 50vh;
-}
 .form {
 	// background-color: yellow;
 	width: 300px;
@@ -73,6 +17,7 @@
 	> h3 {
 		color: tomato;
 		margin-bottom: 20px;
+		font-size: 20px;
 	}
 	> div {
 		margin: 5px 0px;
