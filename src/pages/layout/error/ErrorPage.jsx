@@ -1,30 +1,21 @@
-import React from 'react'
-import './error.scss';
-import sadEmoji from '../../../img/error.jpg';
-import { Link } from 'react-router-dom'
-
+import React from "react";
+import "./error.scss";
+import sadEmoji from "../../../img/error.jpg";
+import { Link } from "react-router-dom";
 
 function ErrorPage() {
-  return (
+	return (
+		// i am in eoor page
+		<div className='error'>
+				<img src={sadEmoji} alt='emoji' height={"170px"} />
 
-    // i am in eoor page 
-    <div className='error'>
-    <div className="Error-img">
-        <img src={sadEmoji} alt="emoji" height={"170px"} />
-      </div>
+				<h1>Oops! Something went wrong</h1>
 
-      <div className="error-container">
-        <h1>Oops! Something went wrong</h1>
-        <p>We're sorry, but it seems like there was an error.</p>
-      </div>
-
-      <Link to="/">
-      <div className="Error-btn">
-          <button className='E-btn'> RETURN HOME </button>
-      </div>
-      </Link>
-</div>
-  )
+				<Link to={"/"}>
+					<button className='E-btn'>Return <i class="fa-solid fa-house"></i></button>
+				</Link>
+		</div>
+	);
 }
 
-export default ErrorPage
+export default ErrorPage;

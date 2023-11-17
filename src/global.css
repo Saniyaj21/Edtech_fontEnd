@@ -6,9 +6,16 @@
 html{
     scroll-behavior: smooth;
 }
+main{
+    min-height: 100vh;
+}
+a{
+    text-decoration: none;
+}
 
 :root {
-    --blue: darkblue;
+    --blue: blue;
     --white:white;
+    --lightBlue:rgb(221, 238, 245);
   
 }

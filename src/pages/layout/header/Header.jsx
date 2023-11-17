@@ -1,23 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./header.scss";
 import AuthHeader from "./components/AuthHeader";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../../redux/slices/authSlice";
+import {toast} from 'react-hot-toast';
 
 const Nav = () => {
 	const [isNavMobile, setIsNavMobile] = useState(false);
+	const {user} = useSelector(selectUser);
 
 	const toggleMenu = () => {
 		setIsNavMobile(!isNavMobile);
 	};
+
+	const userName = user?.name
+	useEffect(() => {
+	  if (userName) {
+		toast.success(`Loged in as ${userName}`)
+	  }
+	}, [userName])
+	
 
 	return (
 		<header className={`${isNavMobile ? "fix-to-top" : ""}`}>
 			<nav className={`nav ${isNavMobile ? "nav-mobile" : ""}`}>
 				<span className='logo'>
 					<a href='/'>
-						<span className='logo-text'>LOGO</span>
+						<span className='logo-text'>StudentQ</span>
 					</a>
 				</span>
+				
 				<span
 					onClick={toggleMenu}
 					className={`hamburg ${isNavMobile ? "ham" : ""}`}
@@ -29,6 +42,7 @@ const Nav = () => {
 			</nav>
 			<div className={`side-block ${isNavMobile ? "toggle-side-block" : ""}`}>
 				<ul className='ul'>
+					
 					<Link className='nav-a' to={"/"}>
 						<li className='nav-li'>
 							{" "}
@@ -37,22 +51,12 @@ const Nav = () => {
 					</Link>
 					<Link className='nav-a' to={"/admin/dashbord"}>
 						<li className='nav-li'>
-							<i className='fa-solid fa-house'></i>Dashboard
+							<i className='fa-solid fa-layer-group'></i>Dashboard
 						</li>
 					</Link>
 					<Link className='nav-a' to={"/auth/login"}>
 						<li className='nav-li'>
 							<AuthHeader />
-						</li>
-					</Link>
-					<Link className='nav-a' to={"/course"}>
-						<li className='nav-li'>
-							<i className='fa-solid fa-house'></i>Home
-						</li>
-					</Link>
-					<Link className='nav-a' to={"/login"}>
-						<li className='nav-li'>
-							<i className='fa-solid fa-house'></i>Home
 						</li>
 					</Link>
 				</ul>

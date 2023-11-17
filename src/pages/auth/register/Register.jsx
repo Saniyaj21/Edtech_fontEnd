@@ -1,7 +1,7 @@
 import React, { useDebugValue, useEffect, useState } from "react";
 import "./Register.scss";
 import { Link, useNavigate } from "react-router-dom";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import dp from "../../../img/profile.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser, selectUser } from "../../../redux/slices/authSlice";
@@ -56,12 +56,13 @@ function Register() {
 		}
 	};
 	return (
-		<div className="register-new-div">
+		<div className='register-new-div'>
 			<form
 				className='form'
 				encType='multipart/form-data'
 				onSubmit={handleRegister}
 			>
+				<h3>Register</h3>
 				<div className='image-container'>
 					<img src={avatar} alt='' />
 				</div>
@@ -116,8 +117,10 @@ function Register() {
 				<div className='action-btn'>
 					<button type='submit'>Register</button>
 				</div>
-				
-      <p><Link to={'/auth/login'}>Login</Link></p>
+
+				<p>
+					<Link to={"/auth/login"}>Already registered? Login now</Link>
+				</p>
 			</form>
 		</div>
 	);

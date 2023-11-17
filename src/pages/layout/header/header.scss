@@ -77,26 +77,18 @@ header {
 .side-block {
 	height: 100vh;
 	width: 350px;
-	background-color: #242424;
+	background-color: var(--lightBlue);
 	position: absolute;
 	top: 50px;
 	right: 0px;
 	transition: 0.4s;
 	transform: translateX(100%);
+	border-left: 2px solid var(--lightBlue);
 }
 .toggle-side-block {
 	transform: translateX(0%);
 }
 
-// .menu {
-//     display: none;
-//     height: 100%;
-//     width: 70%;
-//     margin-right: 20px;
-//     display: flex;
-//     justify-content: flex-end;
-//     position: relative;
-// }
 .ul {
 	display: flex;
 	flex-direction: column;
@@ -127,7 +119,7 @@ header {
 	transition: 0.3s;
 	cursor: pointer;
 	&:hover {
-		border: solid 2px rgba(180, 171, 171, 0.285);
+		background-color:var(--white);
 	}
 }
 
