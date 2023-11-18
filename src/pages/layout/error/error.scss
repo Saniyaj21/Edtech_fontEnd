@@ -11,6 +11,11 @@ gap: 10px;
       background-color: var(--blue);
       border: 2px solid white;
       transition: 0.5s;
+      padding: 10px 15px;
+      color: var(--white);
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: "Roboto";
       cursor: pointer;
       &:hover{
         background: transparent;
