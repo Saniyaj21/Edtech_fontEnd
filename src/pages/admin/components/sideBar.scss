@@ -5,11 +5,12 @@
 	gap: 10px;
 	padding: 0px 10px;
 	margin-top: 50px;
-	
-	> a {
+
+	>a {
 		text-decoration: none;
 		color: var(--blue);
-		> div {
+
+		>div {
 			padding: 0px 10px;
 			height: 35px;
 			display: flex;
@@ -19,15 +20,18 @@
 			cursor: pointer;
 			transition: 0.3s;
 			border-radius: 0px 10px 10px 0px;
-			&:hover {
+
+			&:hover,
+			&.activeLocation {
 				background-color: tomato;
 				color: white;
 			}
 		}
 	}
-	> div {
-		> details {
-			> summary {
+
+	>div {
+		>details {
+			>summary {
 				padding: 0px 10px;
 				height: 35px;
 				color: var(--blue);
@@ -36,16 +40,17 @@
 				cursor: pointer;
 				transition: 0.3s;
 				border-radius: 0px 10px 10px 0px;
+
 				&:hover {
 					background-color: tomato;
 					color: white;
 				}
 			}
 
-			> a {
+			>a {
 				text-decoration: none;
 
-				> p {
+				>p {
 					padding-left: 20px;
 					height: 30px;
 					line-height: 30px;
@@ -53,7 +58,8 @@
 					transition: 0.4s;
 					border-radius: 0px 10px 10px 0px;
 
-					&:hover {
+					&:hover,
+					&.activeLocation {
 						background-color: rgb(245, 134, 114);
 						color: white;
 					}
@@ -62,13 +68,16 @@
 		}
 	}
 }
+
 .toggle-option {
 	padding-left: 20px;
 	transition: 0.3s;
 }
+
 .show {
 	display: block;
 }
+
 .hide {
 	display: none;
 }
@@ -76,6 +85,4 @@
 
 
 /* responsive */
-@media (max-width: 767px) {
-	
-}
+@media (max-width: 767px) {}

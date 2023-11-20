@@ -10,9 +10,10 @@ header {
 	top: 0px;
 
 	width: 100%;
-	margin-top: 20px;
+	// margin-top: 20px;
 	transition: 0.2s;
 }
+
 .nav {
 	background-color: blue;
 	height: 50px;
@@ -31,7 +32,7 @@ header {
 	height: 50px;
 	margin: 0px 20px;
 
-	> a {
+	>a {
 		height: 100%;
 		width: 100%;
 		display: flex;
@@ -41,10 +42,12 @@ header {
 		text-decoration: none;
 	}
 }
+
 .logo-text {
 	color: white;
 	font-size: 22px;
 }
+
 .hamburg {
 	display: block;
 	position: absolute;
@@ -61,15 +64,19 @@ header {
 	transition: 0.5s;
 	top: 100px;
 }
+
 .ham .hamburg {
 	top: 150px;
 }
+
 .ham .span-1 {
 	width: 15px;
 }
+
 .ham .span-3 {
 	width: 15px;
 }
+
 .fix-to-top {
 	margin-top: 0px;
 }
@@ -85,6 +92,7 @@ header {
 	transform: translateX(100%);
 	border-left: 2px solid var(--lightBlue);
 }
+
 .toggle-side-block {
 	transform: translateX(0%);
 }
@@ -96,6 +104,7 @@ header {
 	height: 100%;
 	padding-top: 100px;
 }
+
 .nav-a {
 	text-decoration: none;
 	color: var(--blue);
@@ -103,6 +112,7 @@ header {
 	margin: 0px 10px;
 	font-size: 18px;
 }
+
 .nav-li {
 	font-family: "Roboto";
 	list-style: none;
@@ -118,8 +128,10 @@ header {
 	border-radius: 5px;
 	transition: 0.3s;
 	cursor: pointer;
-	&:hover {
-		background-color:var(--white);
+
+	&:hover,
+	&.activeLocation {
+		background-color: var(--white);
 	}
 }
 
@@ -129,10 +141,12 @@ header {
 		// margin-top: 20px;
 		top: 0px;
 	}
+
 	.nav {
 		align-items: flex-start;
 		position: relative;
 	}
+
 	.side-block {
 		width: 100%;
 	}

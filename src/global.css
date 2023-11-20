@@ -1,21 +1,36 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-html{
+html {
     scroll-behavior: smooth;
 }
-main{
+main {
     min-height: 100vh;
 }
-a{
+a {
     text-decoration: none;
 }
 
 :root {
     --blue: blue;
-    --white:white;
-    --lightBlue:rgb(221, 238, 245);
-  
+    --white: white;
+    --lightBlue: rgb(221, 238, 245);
+
+    --darkClr: #01083e;
+    --secDrkClr: #012f63;
+    --midDarkClr: #000b5e;
+    --midLightClr: #1671d8;
+    --lightClr: #aed8fd;
+    --lightGreenClr: #7fffd4;
+    --midGreenClr: #0fbb82;
+    --themeLightOrangeClr: #ffc760;
+    --themeMidOrangeClr: #ff9d00;
+    --themeDeepOrangeClr: #ff8800;
+    --white: #fff;
+    --navGradient: linear-gradient(180deg, var(--darkClr), var(--secDrkClr));
+    --backGradient: linear-gradient(180deg, var(--secDrkClr), var(--lightClr));
+    --transitionSlow: all 0.5s ease;
+    --transitionFast: all 1s;
 }
