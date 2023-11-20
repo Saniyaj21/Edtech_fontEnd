@@ -71,7 +71,7 @@ const Nav = () => {
                             }
                         >
                             {" "}
-                            <i class="fa-solid fa-user"></i>Profile
+                            <i className="fa-solid fa-user"></i>Profile
                         </li>
                     </Link>
                     <Link

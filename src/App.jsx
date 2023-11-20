@@ -1,4 +1,4 @@
-import './global.css';
+import "./global.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Home from "./pages/home/Home";
@@ -11,33 +11,35 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./redux/slices/authSlice";
 import { useEffect } from "react";
 import Footer from "./pages/layout/footer/Footer";
-import Profile from './pages/user/pages/Profile';
+import Profile from "./pages/user/pages/Profile";
+import Loading from "./pages/layout/loader/Loading";
 
 function App() {
-	const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(getUser());
-	}, [dispatch]);
+    useEffect(() => {
+        dispatch(getUser());
+    }, [dispatch]);
 
-	return (
-		<Router>
-			<Toaster />
-			<Nav />
+    return (
+        <Router>
+            <Toaster />
+            <Nav />
 
-			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/profile' element={<Profile />} />
-				<Route path='/auth/login' element={<Login />} />
-				<Route path='/auth/register' element={<Register />} />
-				<Route path='/admin/dashbord' element={<Dashbord />} />
+            <Routes>
+                {/* <Route path="/loading" element={<Loading />} /> */}
+                <Route path="/" element={<Home />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/auth/login" element={<Login />} />
+                <Route path="/auth/register" element={<Register />} />
+                <Route path="/admin/dashbord" element={<Dashbord />} />
 
-				<Route path='*' element={<ErrorPage />} />
-			</Routes>
+                <Route path="*" element={<ErrorPage />} />
+            </Routes>
 
-      <Footer />
-		</Router>
-	);
+            <Footer />
+        </Router>
+    );
 }
 
 export default App;
