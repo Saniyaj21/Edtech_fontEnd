@@ -1,14 +1,15 @@
 import React from "react";
 import "./Home.scss";
-import BtnPrimary from "../componentStore/buttons/BtnPrimary";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/slices/authSlice";
 function Home() {
+	const { user } = useSelector(selectUser);
 	return (
-		<div>
-			<BtnPrimary
-				btnText={"Hellow World"}
-				icon={<i className='fa-solid fa-users'></i>}
-			/>
-		</div>
+		<main>
+			<div id='home'>
+				{user ?<p>Welcome {user?.name}!</p> :""}
+			</div>
+		</main>
 	);
 }
 

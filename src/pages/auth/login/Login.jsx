@@ -9,12 +9,10 @@ import { loginUser, selectUser } from "../../../redux/slices/authSlice";
 function Login() {
 	const dispatch = useDispatch();
 	const { isAuthenticated, error, status } = useSelector(selectUser);
-
-	const [user, setUser] = useState({});
 	const navigate = useNavigate();
-	const hendleData = (e) => {
-		setUser({ ...user, [e.target.name]: e.target.value });
-	};
+
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
 	useEffect(() => {
 		if (error) {
@@ -27,48 +25,53 @@ function Login() {
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		dispatch(
-			loginUser({ loginEmail: user.email, loginPassword: user.password })
-		);
+		dispatch(loginUser({ loginEmail: email, loginPassword: password }));
 	};
 
 	return (
-		<div>
-			<form id='login' action='' className='auth-form' onSubmit={handleLogin}>
-				<b style={{ fontSize: "25px" }}>Login </b>
-				<br></br>
-				<input
-					type='email'
-					name='email'
-					id=''
-					placeholder='enter valid Email'
-					onChange={hendleData}
-				/>
-				<input
-					type='password'
-					name='password'
-					id=''
-					placeholder='enter vaild password '
-					onChange={hendleData}
-				/>
-				<button type='submit'>Log In</button>
+		<main>
+			<div className='register-new-div'>
+				<form
+					className='form'
+					encType='multipart/form-data'
+					onSubmit={handleLogin}
+				>
+					<h3>Login</h3>
+					<div>
+						{/* <label htmlFor='user-email2'>Email</label> */}
+						<br />
+						<input
+							type='email'
+							required
+							id='user-email2'
+							placeholder="Email"
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+					</div>
+					<div>
+						{/* <label htmlFor='user-password2'>Password</label> */}
+						<br />
+						<input
+							type='password'
+							required
+							id='user-password2'
+							placeholder="Password"
+							onChange={(e) => setPassword(e.target.value)}
+						/>
+					</div>
 
-				<p>
-					If you loss your password
-					<strong>
-						<Link to={"/auth/forgotPassword"}>
-							<span>Forget password</span>
-						</Link>
-					</strong>
-				</p>
-				<br />
-				<hr />
-				<b>If you are not Register </b>
-				<Link to={"/auth/register"}>
-					<button type=''>Register</button>
-				</Link>
-			</form>
-		</div>
+					<div className='action-btn'>
+						<button type='submit'>Login</button>
+					</div>
+
+					<p>
+						<Link to={"/auth/register"}>New here? Register now</Link>
+					</p>
+				</form>
+			</div>
+	
+				
+		</main>
 	);
 }
 
