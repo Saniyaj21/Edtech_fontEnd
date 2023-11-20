@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./redux/slices/authSlice";
 import { useEffect } from "react";
 import Footer from "./pages/layout/footer/Footer";
+import Course from './pages/course/pages/course/Course';
 
 function App() {
 	const dispatch = useDispatch();
@@ -29,7 +30,9 @@ function App() {
 				<Route path='/auth/login' element={<Login />} />
 				<Route path='/auth/register' element={<Register />} />
 				<Route path='/admin/dashbord' element={<Dashbord />} />
-
+                
+				<Route path='/course' element={<Course />} />
+                
 				<Route path='*' element={<ErrorPage />} />
 			</Routes>
 
