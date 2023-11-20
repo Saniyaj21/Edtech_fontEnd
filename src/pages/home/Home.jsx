@@ -7,7 +7,7 @@ function Home() {
 	return (
 		<main>
 			<div id='home'>
-				{user ?<p>Welcome {user?.name} !</p> :""}
+				{user ?<p>Welcome {user?.name}!</p> :""}
 			</div>
 		</main>
 	);

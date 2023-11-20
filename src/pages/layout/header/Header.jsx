@@ -43,18 +43,24 @@ const Nav = () => {
 			<div className={`side-block ${isNavMobile ? "toggle-side-block" : ""}`}>
 				<ul className='ul'>
 					
-					<Link className='nav-a' to={"/"}>
+					<Link onClick={toggleMenu} className='nav-a' to={"/"}>
 						<li className='nav-li'>
 							{" "}
 							<i className='fa-solid fa-house'></i>Home
 						</li>
 					</Link>
-					<Link className='nav-a' to={"/admin/dashbord"}>
+					<Link onClick={toggleMenu} className='nav-a' to={"/profile"}>
+						<li className='nav-li'>
+							{" "}
+							<i class="fa-solid fa-user"></i>Profile
+						</li>
+					</Link>
+					<Link onClick={toggleMenu} className='nav-a' to={"/admin/dashbord"}>
 						<li className='nav-li'>
 							<i className='fa-solid fa-layer-group'></i>Dashboard
 						</li>
 					</Link>
-					<Link className='nav-a' to={"/auth/login"}>
+					<Link onClick={toggleMenu} className='nav-a' to={"/auth/login"}>
 						<li className='nav-li'>
 							<AuthHeader />
 						</li>

@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./redux/slices/authSlice";
 import { useEffect } from "react";
 import Footer from "./pages/layout/footer/Footer";
+import Profile from './pages/user/pages/Profile';
 
 function App() {
 	const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
 
 			<Routes>
 				<Route path='/' element={<Home />} />
+				<Route path='/profile' element={<Profile />} />
 				<Route path='/auth/login' element={<Login />} />
 				<Route path='/auth/register' element={<Register />} />
 				<Route path='/admin/dashbord' element={<Dashbord />} />
