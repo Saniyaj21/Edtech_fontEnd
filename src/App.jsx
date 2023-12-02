@@ -11,31 +11,52 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./redux/slices/authSlice";
 import { useEffect } from "react";
 import Footer from "./pages/layout/footer/Footer";
-import Profile from "./pages/user/pages/Profile";
-import Loading from "./pages/layout/loader/Loading";
+
+import Course from './pages/course/pages/course/Course';
+import Profile from './pages/user/pages/Profile'
+
+import 'aos/dist/aos.css'
+
+import Aos from "aos";
+
+import AllVideo from "./pages/course/components/AllVideo";
 
 function App() {
+
+
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
+        Aos.init(
+            {
+                duration:1500,
+                debounceDelay:1000
+            }
+        );
+        Aos.refresh();
         dispatch(getUser());
     }, [dispatch]);
+
 
     return (
         <Router>
             <Toaster />
             <Nav />
 
-            <Routes>
-                {/* <Route path="/loading" element={<Loading />} /> */}
-                <Route path="/" element={<Home />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/auth/login" element={<Login />} />
-                <Route path="/auth/register" element={<Register />} />
-                <Route path="/admin/dashbord" element={<Dashbord />} />
 
-                <Route path="*" element={<ErrorPage />} />
-            </Routes>
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/profile' element={<Profile />} />
+				<Route path='/auth/login' element={<Login />} />
+				<Route path='/auth/register' element={<Register />} />
+				<Route path='/admin/dashbord' element={<Dashbord />} />
+                
+				<Route path='/course' element={<Course />} />
+                <Route path='/course/video/:topic' element={<AllVideo />} />
+				<Route path='*' element={<ErrorPage />} />
+			</Routes>
+
 
             <Footer />
         </Router>

@@ -38,22 +38,24 @@ function Login() {
 				>
 					<h3>Login</h3>
 					<div>
-						<label htmlFor='user-email2'>Email</label>
+						{/* <label htmlFor='user-email2'>Email</label> */}
 						<br />
 						<input
 							type='email'
 							required
 							id='user-email2'
+							placeholder="Email"
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 					</div>
 					<div>
-						<label htmlFor='user-password2'>Password</label>
+						{/* <label htmlFor='user-password2'>Password</label> */}
 						<br />
 						<input
 							type='password'
 							required
 							id='user-password2'
+							placeholder="Password"
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</div>

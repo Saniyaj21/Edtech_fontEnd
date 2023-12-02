@@ -4,6 +4,9 @@
     justify-content: center;
     align-items: center;
     padding: 50px 0px;
+	// background-color: rgb(200, 199, 197);
+	border:solid 1px rgb(194, 192, 192) ;
+	border-radius: 20px;
 }
 .color-white {
 	color: white;
@@ -21,19 +24,18 @@
 	}
 	> div {
 		margin: 5px 0px;
-		> label {
-			color: tomato;
-		}
+		
+		
 		> input {
 			width: 100%;
-			height: 35px;
+			height: 40px;
 			margin: 5px 0;
 			padding-left: 10px;
 			outline: none;
-			border: 2px solid var(--blue);
+			border: none;
+            box-shadow:0px 0px 5px 1px rgb(78, 76, 76);
 			border-radius: 5px;
 			font-size: 16px;
-			color: tomato;
 			letter-spacing: 1px;
 		}
 	}
@@ -46,7 +48,7 @@
 			height: 35px;
 			width: 150px;
             font-family: Roboto;
-			background-color: tomato;
+			background-color:var(--blue);
 			color: white;
 			font-size: 16px;
             border: none;
@@ -74,15 +76,20 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	>img{
-		height: 100px;
-		width: 100px;
-		border-radius: 50%;
-	}
+	
+	>label{
+		>img{
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
+}
+	
 }
 .image-input{
+	// border: solid 1px red;
 	>.file-input{
-		display: flex;
+		display: none;
 		padding-left: 0px;
 		
 	}

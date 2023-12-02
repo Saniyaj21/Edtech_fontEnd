@@ -72,6 +72,23 @@ const Nav = () => {
                         >
                             {" "}
                             <i className="fa-solid fa-user"></i>Profile
+
+                        </li>
+                    </Link>
+                    <Link
+                        onClick={toggleMenu}
+                        className="nav-a"
+                        to={"/course"}
+                    >
+                        <li
+                            className={
+                                location.pathname == "/admin/dashbord"
+                                    ? "nav-li activeLocation"
+                                    : "nav-li"
+                            }
+                        >
+                            <i className="fa-solid fa-film"></i>course
+
                         </li>
                     </Link>
                     <Link
