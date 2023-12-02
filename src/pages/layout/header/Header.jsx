@@ -72,6 +72,7 @@ const Nav = () => {
                         >
                             {" "}
                             <i className="fa-solid fa-user"></i>Profile
+
                         </li>
                     </Link>
                     <Link
@@ -87,6 +88,7 @@ const Nav = () => {
                             }
                         >
                             <i className="fa-solid fa-film"></i>course
+
                         </li>
                     </Link>
                     <Link

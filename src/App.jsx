@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./redux/slices/authSlice";
 import { useEffect } from "react";
 import Footer from "./pages/layout/footer/Footer";
+
 import Course from './pages/course/pages/course/Course';
 import Profile from './pages/user/pages/Profile'
 
@@ -37,10 +38,12 @@ function App() {
         dispatch(getUser());
     }, [dispatch]);
 
+
     return (
         <Router>
             <Toaster />
             <Nav />
+
 
 			<Routes>
 				<Route path='/' element={<Home />} />
@@ -53,6 +56,7 @@ function App() {
                 <Route path='/course/video/:topic' element={<AllVideo />} />
 				<Route path='*' element={<ErrorPage />} />
 			</Routes>
+
 
             <Footer />
         </Router>

@@ -14,6 +14,7 @@ function Register() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
+
     const dispatch = useDispatch();
     const { isAuthenticated, error, status } = useSelector(selectUser);
     const navigate = useNavigate();
@@ -36,6 +37,7 @@ function Register() {
                 setAvatar(e.target.result);
             };
 
+
             reader.readAsDataURL(file);
         } else {
             console.log("Error happened");
@@ -47,6 +49,7 @@ function Register() {
             toast.error("Confirm Password!");
         } else {
             const myForm = new FormData();
+
 
 			myForm.set("name", userName);
 			myForm.set("email", email);
@@ -145,5 +148,6 @@ function Register() {
                     </form>
                 </div>
             )}
+
 
 export default Register;
