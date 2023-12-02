@@ -1,4 +1,4 @@
-import './global.css';
+import "./global.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Home from "./pages/home/Home";
@@ -13,19 +13,34 @@ import { useEffect } from "react";
 import Footer from "./pages/layout/footer/Footer";
 import Course from './pages/course/pages/course/Course';
 import Profile from './pages/user/pages/Profile'
-import Vedio from './pages/course/components/Vedio'
+
+import 'aos/dist/aos.css'
+
+import Aos from "aos";
+
+import AllVideo from "./pages/course/components/AllVideo";
 
 function App() {
-	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(getUser());
-	}, [dispatch]);
 
-	return (
-		<Router>
-			<Toaster />
-			<Nav />
+    
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        Aos.init(
+            {
+                duration:1500,
+                debounceDelay:1000
+            }
+        );
+        Aos.refresh();
+        dispatch(getUser());
+    }, [dispatch]);
+
+    return (
+        <Router>
+            <Toaster />
+            <Nav />
 
 			<Routes>
 				<Route path='/' element={<Home />} />
@@ -35,13 +50,13 @@ function App() {
 				<Route path='/admin/dashbord' element={<Dashbord />} />
                 
 				<Route path='/course' element={<Course />} />
-                <Route path='/course/vedio' element={<Vedio />} />
+                <Route path='/course/video/:topic' element={<AllVideo />} />
 				<Route path='*' element={<ErrorPage />} />
 			</Routes>
 
-      <Footer />
-		</Router>
-	);
+            <Footer />
+        </Router>
+    );
 }
 
 export default App;

@@ -1,75 +1,27 @@
-import React from 'react'
+import React from "react";
 
 
 // import Nav from "../../../layout/header/Header";
-import './course.scss'
-import ReactPlayer from 'react-player/youtube'
-import { Link } from 'react-router-dom'
-
-
-
+import "./course.scss";
+import CourseContainer from "../../components/CourseContainer";
 
 function Course() {
-
-  
   return (
     <div>
-      <div className='course_container'>
-          <ul>
-    <li>
-    <div className='img_container'>
-    <ReactPlayer width={200} height={180}  className="img" url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
-
-    </div>
-    <div>
-    <h2>python</h2>
-    <p>o, quisquam ab nisi totam facere.</p>
-    <Link to={'/course/vedio'}><button> Start </button></Link>
-    </div>
-  </li>
-  <li>
-    <div className='img_container'>
-    <ReactPlayer width={200} height={180} className="img" url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
-
-    </div>
-    <div>
-    <h2>java</h2>
-    <p>o, quisquam ab nisi totam facere.</p>
-  
-    <button> Start </button>
-    </div>
-  </li>
-  <li>
-    <div className='img_container'>
-    <ReactPlayer width={200} height={180} className="img" url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
-
-    </div>
-    <div>
-    <h2>java</h2>
-    <p>o, quisquam ab nisi totam facere.</p>
-  
-    <button> Start </button>
-    </div>
-  </li>
-  <li>
-    <div className='img_container'>
-    <ReactPlayer width={200} height={180} className="img" url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
-
-    </div>
-    <div>
-    <h2>java</h2>
-    <p>o, quisquam ab nisi totam facere.</p>
-  
-    <button> Start </button>
-    </div>
-  </li>
-  </ul> 
-
-        
+      <div className="search-container">
+        <input type="text" placeholder="Search course..." />
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
+      <div className="course_container">
+  <CourseContainer name="Python" />
+  <CourseContainer name="java" />
+  <CourseContainer name="javascript" />
+  <CourseContainer name="reactJS" />
+  <CourseContainer name="PHP" />
+  <CourseContainer name="NodeJS" />
+     </div>
     </div>
-  )
+  );
 }
 
-export default Course
- 
+export default Course;

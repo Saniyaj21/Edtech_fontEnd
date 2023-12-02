@@ -5,47 +5,48 @@ import { toast } from "react-hot-toast";
 import dp from "../../../img/profile.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser, selectUser } from "../../../redux/slices/authSlice";
+import Loading from "../../layout/loader/Loading";
 
 function Register() {
-	const [avatar, setAvatar] = useState(dp);
-	const [userName, setUserName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
+    const [avatar, setAvatar] = useState(dp);
+    const [userName, setUserName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
-	const dispatch = useDispatch();
-	const { isAuthenticated, error, status } = useSelector(selectUser);
-	const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { isAuthenticated, error, status } = useSelector(selectUser);
+    const navigate = useNavigate();
 
-	useEffect(() => {
-		if (error) {
-			toast.error(error);
-		}
-		if (isAuthenticated === true) {
-			navigate("/");
-		}
-	}, [dispatch, isAuthenticated, error, status, navigate]);
+    useEffect(() => {
+        if (error) {
+            toast.error(error);
+        }
+        if (isAuthenticated === true) {
+            navigate("/");
+        }
+    }, [dispatch, isAuthenticated, error, status, navigate]);
 
-	const handleFileChange = (e) => {
-		const file = e.target.files[0];
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
 
-		if (file) {
-			const reader = new FileReader();
-			reader.onload = function (e) {
-				setAvatar(e.target.result);
-			};
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                setAvatar(e.target.result);
+            };
 
-			reader.readAsDataURL(file);
-		} else {
-			console.log("Error happened");
-		}
-	};
-	const handleRegister = (e) => {
-		e.preventDefault();
-		if (password !== confirmPassword) {
-			toast.error("Confirm Password!");
-		} else {
-			const myForm = new FormData();
+            reader.readAsDataURL(file);
+        } else {
+            console.log("Error happened");
+        }
+    };
+    const handleRegister = (e) => {
+        e.preventDefault();
+        if (password !== confirmPassword) {
+            toast.error("Confirm Password!");
+        } else {
+            const myForm = new FormData();
 
 			myForm.set("name", userName);
 			myForm.set("email", email);
@@ -136,12 +137,13 @@ function Register() {
 					<button type='submit'>Register</button>
 				</div>
 
-				<p>
-					<Link to={"/auth/login"}>Already registered? Login now</Link>
-				</p>
-			</form>
-		</div>
-	);
-}
+                        <p>
+                            <Link to={"/auth/login"}>
+                                Already registered? Login now
+                            </Link>
+                        </p>
+                    </form>
+                </div>
+            )}
 
 export default Register;
