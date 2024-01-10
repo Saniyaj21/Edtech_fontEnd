@@ -1,0 +1,31 @@
+.welcome-main {
+	display: flex;
+	padding: 80px 5%;
+	gap: 20px;
+}
+.welcome-left {
+	width: 100%;
+}
+.welcome-right {
+    max-width: 320px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+	>h3{
+		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		text-align: center;
+	}
+}
+
+@media (max-width: 767px) {
+	.welcome-main {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+	.welcome-left {
+		width: 100%;
+        order: 2;
+	}
+
+}

@@ -1,17 +1,18 @@
 .vedio_container {
-	margin-top: 5px;
+	
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 5%;
-	padding-top: 50px;
-  background-color:var(--white);
+	padding-top: 60px;
+	background-color: var(--white);
 
 	.vedio {
 		width: 50%;
 		background-color: var(--white);
-    border-bottom: 3px solid var(--lightClr);
+		border-bottom: 3px solid var(--lightClr);
 		padding: 0 5px;
+		
 
 		> div {
 			// any media quere change here for video player _ current player
@@ -22,7 +23,7 @@
 				width: 100% !important;
 
 				> iframe {
-          border-radius: 5px;
+					border-radius: 5px;
 					width: 100% !important;
 					height: 100% !important;
 				}
@@ -34,9 +35,9 @@
 			padding: 0;
 			height: auto;
 			height: 100px !important;
-      display: flex;
-      align-items: center;
-      font-family: 'Courier New', Courier, monospace;
+			display: flex;
+			align-items: center;
+			font-family: "Courier New", Courier, monospace;
 		}
 	}
 
@@ -84,15 +85,14 @@
 
 @media (max-width: 760px) {
 	.vedio_container {
-    position: relative;
-    
+		position: relative;
+
 		.vedio {
 			width: 100%;
 			position: sticky;
 			top: 0px;
-     
+
 			> div {
-       
 				height: 200px !important;
 				> div {
 					// height: 50px;
@@ -104,20 +104,19 @@
 					}
 				}
 			}
-      // video details section
+			// video details section
 			.details {
 				// background-color: red;
-        
-        transition: 0.5s;
 
-        // comment out any one of bellow to see how the see more option control the height
-        height: 50px !important;
-        // height: 300px !important;
+				transition: 0.5s;
+
+				// comment out any one of bellow to see how the see more option control the height
+				height: 50px !important;
+				// height: 300px !important;
 			}
 		}
 		.playlist {
 			width: 100%;
-      
 		}
 	}
 }
