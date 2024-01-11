@@ -1,30 +1,35 @@
 import VideoCard from "./VideoCard";
 import "./welcome.scss";
+import { motion } from "framer-motion"
 
 const Welcome = () => {
 	const videos = [
 		{
-      _id:1,
+			_id: 1,
 			title: "Web development 1 hshd dksd sjskjdis dihsdi ",
 			link: "https://youtu.be/vu7l9VaSpNQ?si=xtW-fcQWll2NQ2Ky",
 		},
 		{
-      _id:2,
+			_id: 2,
 			title: "Intro to HTML",
 			link: "https://youtu.be/Ru37TClk0-s?si=kcgTv4g1F74zNC2B",
 		},
 	];
 
 	return (
-		<div className='welcome-main'>
-			<div className='welcome-left'>Welcome Page Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sit adipisci perspiciatis unde harum temporibus doloribus quia facilis ab dolor a eaque labore consequatur repellendus incidunt magnam, quae accusamus vel ea voluptates quo asperiores quos nemo. Debitis corrupti minima expedita, quas fugit cumque veritatis laboriosam deleniti voluptas obcaecati, esse blanditiis quo corporis exercitationem incidunt? Deserunt minima, debitis magnam consequatur ab eaque recusandae adipisci quos, voluptate expedita possimus quasi ullam officia modi asperiores a odit. Enim voluptates laborum repellat quam ea, error illo accusamus obcaecati, blanditiis exercitationem ab debitis, maiores ipsum asperiores optio aliquam pariatur molestias quos nemo officiis vitae ipsam dolorem dolor animi? Quos harum provident veniam aspernatur incidunt laborum amet ipsa repudiandae perferendis. Deserunt, dolorem? Nisi voluptatem sapiente, dolores expedita est facilis excepturi voluptatibus quod! Iusto excepturi impedit eaque consectetur ad ab beatae commodi iste. Aliquid temporibus neque non. Quisquam, tenetur non recusandae tempore magni harum obcaecati voluptatibus, sapiente quia sequi perspiciatis eius unde aspernatur repudiandae. Praesentium possimus harum ut sequi tempore eveniet repellendus repellat saepe, culpa aliquam earum magnam obcaecati dicta quo odio fugit iure ratione quas illum in dolorum ducimus ipsam natus maiores. Provident nulla delectus quisquam fuga aliquid. Ipsum odio libero repudiandae sunt sapiente excepturi recusandae in cumque pariatur, unde earum temporibus porro eaque fugit deleniti nobis voluptatem laborum, officiis veniam numquam, sequi animi et id! Rerum ducimus quis impedit tenetur. Iste cum quae mollitia distinctio nihil accusamus dolorum est a expedita, quibusdam deleniti veniam obcaecati aliquam! Optio delectus eveniet nobis ipsa incidunt laudantium, aut, aliquam maxime molestias, iste enim doloribus accusantium aperiam corporis rerum iusto ullam consequuntur blanditiis. Asperiores cum quaerat omnis esse ex beatae. Nisi nobis harum consequuntur at ab? Adipisci facilis repudiandae soluta, laborum quaerat aliquid rerum nostrum porro nesciunt. Nisi dicta optio nihil, quaerat aliquam iusto ex magnam quam natus. Eligendi, id odit maxime suscipit molestias deserunt natus, quis quidem fugit modi cum provident ad itaque? Quis quo provident fugit. Iure tenetur reiciendis, atque excepturi officiis aliquam esse veritatis cumque, in ex neque sed praesentium fugiat. Quam, adipisci quisquam. Reiciendis sed quidem doloremque veritatis, illo aspernatur officia. Magni, deleniti consequatur sint sed ullam eius quae numquam esse a ex corrupti, ratione ea dolore, assumenda temporibus sequi beatae autem. Velit quae labore porro obcaecati repellendus magni nihil assumenda commodi id illo! Natus ipsa aperiam, non culpa nemo quos, magnam debitis commodi quaerat voluptatibus nobis ut at id velit quae animi modi eos veniam quam ab aspernatur incidunt suscipit voluptate dicta. Cum omnis, aut animi earum praesentium consequatur maiores eveniet quibusdam cumque, quisquam ipsam est, dolores placeat temporibus dignissimos aliquid nulla at quia iure quos recusandae deserunt repudiandae? Necessitatibus quam excepturi voluptatibus quasi sint, mollitia molestiae autem error deleniti repellat ipsa libero ut doloremque ipsam at fugit adipisci atque culpa odit fugiat ducimus earum labore. Tempore porro, tenetur quod vitae corrupti blanditiis, quaerat molestiae quibusdam impedit quo alias libero praesentium. Dolor, error necessitatibus, nobis ratione beatae sit minus facere quam possimus, est ab dolores perferendis accusamus dolore! Ex libero, voluptas natus repellendus quas, necessitatibus officia ullam laboriosam rerum quasi facilis neque tempore, optio a. Possimus recusandae nihil facilis culpa! Iure cupiditate dolorum provident? Veniam odit cum, debitis quia sed nulla, dolorem quasi cumque assumenda ipsum non eius quaerat. Nulla culpa perferendis nisi molestias labore ut illum dolorem reprehenderit amet, magni eius autem temporibus provident expedita quidem magnam maiores rerum odio maxime porro alias explicabo suscipit et nesciunt! Magnam ex eligendi et ad quisquam ipsum, amet, veniam laudantium nihil molestias nam asperiores, deleniti ipsam. A omnis dolorem veritatis, ipsam debitis sequi consequuntur dignissimos quis? Placeat, nulla minus mollitia ducimus, officiis deleniti pariatur praesentium saepe perspiciatis eaque ipsam? Fugit harum molestias laboriosam illum veniam ducimus dicta, maiores modi numquam minus voluptatem porro libero deserunt nesciunt corrupti exercitationem, aliquid nulla, rem itaque expedita? Id ab autem laborum sed distinctio dicta debitis neque? Aut, incidunt, et cum ea eius mollitia enim numquam odio explicabo quos vitae molestias non labore quis. Expedita laboriosam in dolorem deleniti saepe. Dolorem maxime, quas minus praesentium facere dolore ex, iusto sunt, voluptate debitis eveniet dicta vero fugit harum hic ad quidem cum commodi obcaecati distinctio eum aperiam. Mollitia numquam ratione unde nobis reprehenderit ea, deserunt ad ab, omnis perferendis porro reiciendis adipisci. Numquam optio quas maiores, nihil obcaecati libero, fugiat explicabo, provident in tenetur sunt? Quo, a fugiat. Ipsa deserunt saepe accusamus alias similique cupiditate voluptatem velit unde laborum, atque a officia vitae sed asperiores sequi dicta sint labore error tempora odio suscipit. Mollitia autem enim quia et quo quisquam porro qui, laboriosam molestias amet. Magni fugiat quae consequatur repellat vel hic optio beatae voluptatibus mollitia excepturi, possimus velit labore tempora ipsum dolorum veritatis sed quaerat, inventore quos atque ducimus! Molestias earum cum ex suscipit maiores illo at! Explicabo inventore voluptates eveniet molestias deserunt? Libero tempore voluptate quod illum voluptatum modi voluptas explicabo ullam et dolore aut dolores corporis laboriosam magni ipsam quisquam odit molestias ad dicta, impedit nam. Dolorem natus sit libero vitae at facilis adipisci cumque beatae unde voluptatibus. Tempora enim quod non accusamus ipsam delectus alias tenetur, assumenda ab tempore dolore quis distinctio omnis eligendi labore perspiciatis ipsum exercitationem qui cumque minus eius dolores explicabo. Ipsam voluptatum commodi incidunt ducimus delectus aperiam vero officia quae impedit, a vel totam illo eligendi distinctio cumque quibusdam eveniet ullam fugiat. Ea explicabo, possimus quibusdam cum dolorem aut incidunt deserunt provident dolores illo facilis molestiae eum asperiores aliquid repellat culpa eveniet nemo recusandae delectus quis animi dicta. Placeat iste doloremque dolor expedita magnam similique voluptas neque, nesciunt hic recusandae esse cupiditate maxime quia assumenda cumque consequuntur sint sit quas illum. Consectetur, exercitationem sunt optio sapiente quos dolore aperiam modi nobis atque quisquam dolores iusto! Deleniti quae voluptas explicabo, repudiandae ipsa dolorem quis perferendis dolor, sapiente cum dolorum beatae voluptatibus quisquam accusamus porro aut eaque vitae quam totam laudantium fugit minus natus quod! Veniam mollitia iusto harum, nulla doloribus ratione magni impedit iste delectus quis repudiandae, ipsam temporibus vel quos officiis debitis velit illum, culpa dignissimos. Temporibus, tenetur. Totam deleniti accusantium magni mollitia voluptas sunt.</div>
+		<motion.div 
+		initial={{scale:1.1}}
+		animate={{ scale:1}}
+		transition={{ duration: 0.3, delay:2}}
+		className='welcome-main'>
+			<div className='welcome-left'></div>
 			<div className='welcome-right'>
-        <h3>Recent Videos On Logic Lords.dev</h3>
-        {
-          videos.map((item)=> < VideoCard item={item} key={item._id} />)
-        }
-      </div>
-		</div>
+				<h3>Recent Videos On Logic Lords.dev</h3>
+				{videos.map((item) => (
+					<VideoCard item={item} key={item._id} />
+				))}
+			</div>
+		</motion.div>
 	);
 };
 
