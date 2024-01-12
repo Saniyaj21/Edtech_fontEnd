@@ -5,14 +5,19 @@
 }
 .welcome-left {
 	width: 100%;
+	// background-color: blue;
+	>h1{
+		color: var(--orange2);
+	}
 }
 .welcome-right {
-    max-width: 320px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-	>h3{
-		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	max-width: 320px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	> h3 {
+		font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+			sans-serif;
 		text-align: center;
 	}
 }
@@ -22,10 +27,10 @@
 		display: flex;
 		flex-direction: column;
 		gap: 30px;
+		align-items: center;
 	}
 	.welcome-left {
 		width: 100%;
-        order: 2;
+		order: 2;
 	}
-
 }

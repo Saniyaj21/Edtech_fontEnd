@@ -39,7 +39,7 @@ a {
     --midGreenClr: #0fbb82;
     --themeLightOrangeClr: #ffc760;
     --themeMidOrangeClr: #ff9d00;
-    --themeDeepOrangeClr: #ff8800;
+    --orange2: #ff8800;
     --white: #fff;
     --navGradient: linear-gradient(180deg, var(--darkClr), var(--secDrkClr));
     --backGradient: linear-gradient(180deg, var(--secDrkClr), var(--lightClr));
