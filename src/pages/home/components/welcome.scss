@@ -5,7 +5,10 @@
 }
 .welcome-left {
 	width: 100%;
-	background-color: blue;
+	// background-color: blue;
+	>h1{
+		color: var(--orange2);
+	}
 }
 .welcome-right {
 	max-width: 320px;

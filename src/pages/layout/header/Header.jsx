@@ -5,6 +5,7 @@ import AuthHeader from "./components/AuthHeader";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../redux/slices/authSlice";
 import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const Nav = () => {
 	const [isNavMobile, setIsNavMobile] = useState(false);
@@ -23,7 +24,7 @@ const Nav = () => {
 			}
 		}, 3000);
 
-        return () => clearTimeout(timer);
+		return () => clearTimeout(timer);
 	}, [userName]);
 
 	return (
@@ -31,7 +32,16 @@ const Nav = () => {
 			<nav className={`nav ${isNavMobile ? "nav-mobile" : ""}`}>
 				<span className='logo'>
 					<a href='/'>
-						<span className='logo-text'>StudentQ</span>
+						<motion.span
+							initial={{ translateX: "-150%" }}
+							animate={{ translateX: 0 }}
+							transition={{
+								duration: 0.3,
+							}}
+							className='logo-text'
+						>
+							Logic Lords.Dev
+						</motion.span>
 					</a>
 				</span>
 

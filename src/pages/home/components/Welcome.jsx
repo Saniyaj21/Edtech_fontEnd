@@ -1,6 +1,6 @@
 import VideoCard from "./VideoCard";
 import "./welcome.scss";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 const Welcome = () => {
 	const videos = [
@@ -17,12 +17,27 @@ const Welcome = () => {
 	];
 
 	return (
-		<motion.div 
-		initial={{scale:1.1}}
-		animate={{ scale:1}}
-		transition={{ duration: 0.3, delay:2}}
-		className='welcome-main'>
-			<div className='welcome-left'></div>
+		<motion.div
+			initial={{ scale: 1.1 }}
+			animate={{ scale: 1 }}
+			transition={{ duration: 0.3, delay: 2 }}
+			className='welcome-main'
+		>
+			<div className='welcome-left'>
+				<motion.h1
+					// initial={{ translateX: "-100%" }}
+					// animate={{ translateX: 0 }}
+					// transition={{
+					// 	duration: 0.3,
+					// 	delay: 2.4,
+					// 	// stiffness: 100,
+					// 	// type: "spring",
+					// 	// damping: 20,
+					// }}
+				>
+					Logic Lords.Dev
+				</motion.h1>
+			</div>
 			<div className='welcome-right'>
 				<h3>Recent Videos On Logic Lords.dev</h3>
 				{videos.map((item) => (
