@@ -6,73 +6,99 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, selectUser } from "../../../redux/slices/authSlice";
 
+import regImage from "../register/registration.png";
+import Input from "../../componentStore/input/Input";
+import { Icon } from "@iconify/react";
+import verify from "./Verify.svg"
+
+
 function Login() {
-	const dispatch = useDispatch();
-	const { isAuthenticated, error, status } = useSelector(selectUser);
-	const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isAuthenticated, error, status } = useSelector(selectUser);
+  const navigate = useNavigate();
 
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-	useEffect(() => {
-		if (error) {
-			toast.error(error);
-		}
-		if (isAuthenticated === true) {
-			navigate("/");
-		}
-	}, [dispatch, isAuthenticated, error, status, navigate]);
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+    if (isAuthenticated === true) {
+      navigate("/");
+    }
+  }, [dispatch, isAuthenticated, error, status, navigate]);
 
-	const handleLogin = async (e) => {
-		e.preventDefault();
-		dispatch(loginUser({ loginEmail: email, loginPassword: password }));
-	};
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    dispatch(loginUser({ loginEmail: email, loginPassword: password }));
+  };
 
-	return (
-		<main>
-			<div className='register-new-div'>
-				<form
-					className='form'
-					encType='multipart/form-data'
-					onSubmit={handleLogin}
-				>
-					<h3>Login</h3>
-					<div>
-						{/* <label htmlFor='user-email2'>Email</label> */}
-						<br />
-						<input
-							type='email'
-							required
-							id='user-email2'
-							placeholder="Email"
-							onChange={(e) => setEmail(e.target.value)}
-						/>
-					</div>
-					<div>
-						{/* <label htmlFor='user-password2'>Password</label> */}
-						<br />
-						<input
-							type='password'
-							required
-							id='user-password2'
-							placeholder="Password"
-							onChange={(e) => setPassword(e.target.value)}
-						/>
-					</div>
+  return (
+    <main>
+      <div className="register_new_div">
+        <div className="image_container" id="login_img">
+          <img src={regImage} alt="" id="progress" />
+        </div>
 
-					<div className='action-btn'>
-						<button type='submit'>Login</button>
-					</div>
+        {/* form container */}
+        <div className="form_container">
+          <form
+            className="form"
+            encType="multipart/form-data"
+            onSubmit={handleLogin}
+          >
+            <div>
+              <h2>Welcome Back!</h2>
+            </div>
 
-					<p>
-						<Link to={"/auth/register"}>New here? Register now</Link>
-					</p>
-				</form>
-			</div>
-	
-				
-		</main>
-	);
+            <div>
+              <Input
+                name={"email"}
+                placeholder={"Email"}
+                type={"email"}
+                onInputChange={(name, value) => {
+                  setEmail(value);
+                }}
+              />
+            </div>
+            <div>
+              <Input
+                type={"password"}
+                name={"password"}
+                placeholder={"Password"}
+                onInputChange={(name, value) => {
+                  setPassword(value);
+                }}
+              />
+            </div>
+
+            <div className="action-btn">
+              
+              <button type="submit">
+                <img src={verify} alt="" /> &nbsp;
+                Login</button>
+            </div>
+            
+              <fieldset className="other_container">
+                <legend>or</legend>
+                <p>
+				         Don't have an account ?
+                  <br />
+				          <Link to={"/auth/register"} className="link"> Register</Link>
+                </p>
+                <button>
+                  {" "}
+                  <span>contineu with</span>{" "}
+                  <Icon className="google_logo" icon="logos:google-icon" />
+                </button>
+              </fieldset>
+            
+          </form>
+        </div>
+      </div>
+    </main>
+  );
 }
 
 export default Login;
